@@ -7,7 +7,7 @@ This project is an agent designed to play and win a bluffing-style card game aga
 The agent operates within a **Partially Observable Stochastic Environment (POMDP)**. It cannot directly observe the opponent's cards but can track and analyze the actions the opponent takes (i.e., the cards they play).
 
 ## Project Phase
-#### Phase 1 – Basic CLI Game
+#### Phase 1 – Basic CLI Game 
 **Goal:** Validate game rules and flow, Fully random (non-intelligent) agent
 
 #### Phase 2 – Heuristic Agent
