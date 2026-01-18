@@ -1,20 +1,20 @@
 Heuristics to Add
 
-When deciding to bluff only pick up those cards which have a length of one, if no such cards exist then bluff on cards having a length of 2 and so on.
+1. When deciding to bluff only pick up those cards which have a length of one, if no such cards exist then bluff on cards having a length of 2 and so on.
 
-To minimise the chance of being caught, the agent should prioritise bluffing on ranks it does not possess to increase the statistics of the user not having the total sum of the cards 
+2. To minimise the chance of being caught, the agent should prioritise bluffing on ranks it does not possess to increase the statistics of the user not having the total sum of the cards 
 
-Our current logic has only 2 functions for calling, called being honest and lying. Create a new function called strategy where the user will try to complete the cards for which it has a length of more than 1 by first calling ( true card , lie ) and then in the next turn playing the true card
+3. Our current logic has only 2 functions for calling, called being honest and lying. Create a new function called strategy where the user will try to complete the cards for which it has a length of more than 1 by first calling ( true card , lie ) and then in the next turn playing the true card
 
-Calculate the probability that the user has a card given the card the agent knows ( its own cards + card it seen through bluff ) and set a threshold to 60 %. If the surety it greater than 60 % then call pass else call bluff
+4. Calculate the probability that the user has a card given the card the agent knows ( its own cards + card it seen through bluff ) and set a threshold to 60 %. If the surety it greater than 60 % then call pass else call bluff
 
-As the user finishes his cards ( ie when the user has less cards ) increase the threshold to 80% to call bluff more times. 
+5. As the user finishes his cards ( ie when the user has less cards ) increase the threshold to 80% to call bluff more times. 
 
-If the opponent has ≤2 cards left, the agent should ignore thresholds and call "Bluff" on almost any play that isn't mathematically guaranteed to be true. This is a "last stand" mechanic.
+6. If the opponent has ≤2 cards left, the agent should ignore thresholds and call "Bluff" on almost any play that isn't mathematically guaranteed to be true. This is a "last stand" mechanic.
 
-Track how many of each rank the agent has seen (in its hand + discarded).  Action: If the opponent claims to play 3 Aces, but the agent has seen 2 Aces already, the agent knows for a fact (100% probability) the opponent is lying.
+7. Track how many of each rank the agent has seen (in its hand + discarded).  Action: If the opponent claims to play 3 Aces, but the agent has seen 2 Aces already, the agent knows for a fact (100% probability) the opponent is lying.
 
-If the agent's hand is large (>10 cards), prioritize "Passing" its turn rather than bluffing if it doesn't have the required rank. This avoids the risk of the hand growing even larger.
+8. If the agent's hand is large (>10 cards), prioritize "Passing" its turn rather than bluffing if it doesn't have the required rank. This avoids the risk of the hand growing even larger.
 
-The agent should calculate the "Expected Value" of calling a bluff.  Logic: If PileSize > 25% of TotalCards, increase the threshold for calling a bluff. The penalty for being wrong (picking up the whole pile) outweighs the benefit of catching a liar.
+9. The agent should calculate the "Expected Value" of calling a bluff.  Logic: If PileSize > 25% of TotalCards, increase the threshold for calling a bluff. The penalty for being wrong (picking up the whole pile) outweighs the benefit of catching a liar.
 
